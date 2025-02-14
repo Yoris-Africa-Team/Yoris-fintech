@@ -11,8 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        gold: "#C3AD60", // Add your golden-yellow color
       },
     },
   },
   plugins: [],
 } satisfies Config;
+
