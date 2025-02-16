@@ -60,7 +60,7 @@ const TransactionsDisplay = () => {
    const router = useRouter()   
 
   return (
-    <div className="w-full mx-auto  p-6 border border-gold rounded-xl bg-[#100F0D] text-white">
+    <div className="w-full mx-auto  p-6 border border-gold rounded-xl bg-[#100F0D] md:mt-0  text-white">
       {/* Header */}
       <div className=" my-7 pl-3">
          <Home className="

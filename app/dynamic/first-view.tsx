@@ -49,11 +49,11 @@ const FirstView = () => {
    ];
 
    return (
-      <div className="bg-[#100F0D] border border-[#C3AD60] rounded-2xl p-6">
+      <div className="bg-[#100F0D] border border-[#C3AD60] rounded-2xl py-6 md:px-6 px-3">
          <h2 className="text-xl mb-6">Shortcuts</h2>
 
          {/* Top 3 Shortcuts */}
-         <div className="flex gap-7 md:gap-10 justify-evenly p-5 md:items-start mb-9">
+         <div className="grid md:grid-cols-4 grid-cols-3 gap-4 p-4">
             {shortcuts.slice(0, 3).map((shortcut) => (
                <div key={shortcut.id} className="flex flex-col items-center gap-2">
                   <button className="w-14 h-14 bg-[#C3AD60] hover:bg-[#806d2a] rounded-lg p-3 flex items-center justify-center">
@@ -62,18 +62,20 @@ const FirstView = () => {
                   <span className="text-sm text-wrap max-w-14 text-center text-white">{shortcut.name}</span>
                </div>
             ))}
+            {/* Invisible Placeholder (Ensures Alignment) */}
+            <div className="w-14 h-14 opacity-0 md:block hidden"></div>
          </div>
 
          {/* Buttons */}
-         <div className="space-y-4 mb-10">
+         <div className="space-y-4 md:mb-10 mb:5">
             <button
-               className="w-full md:w-[70%] hover:bg-[#806d2a] mx-auto py-3 bg-[#C3AD60] text-black flex items-center justify-center gap-2 rounded-lg"
+               className="w-[260px]  hover:bg-[#806d2a] mx-auto py-3 bg-[#C3AD60] text-black flex items-center justify-center gap-2 rounded-lg"
                onClick={() => setActiveComponent('wallet')}
             >
                <Upload className="w-5 h-5" /> Top up/Withdraw
             </button>
             <button
-               className="w-full md:w-[70%] hover:bg-[#806d2a] mx-auto py-3 bg-[#C3AD60] border border-[#C3AD60] text-black flex items-center justify-center gap-2 rounded-lg"
+               className="w-[260px] hover:bg-[#806d2a] mx-auto py-3 bg-[#C3AD60] border border-[#C3AD60] text-black flex items-center justify-center gap-2 rounded-lg"
                onClick={() => {
                   setActiveComponent('sendMoney');
                   setReplaceWithContacts(true);
@@ -83,15 +85,18 @@ const FirstView = () => {
             </button>
          </div>
 
+         <div className="flex justify-end mt-1 md:hidden" ref={bottomRef}>
+            <button onClick={() => setShowMore(!showMore)} className="text-[#C3AD60] text-sm underline">
+               {showMore ? 'Close' : 'See More'}
+            </button>
+         </div>
+
          {/* Shortcuts with Smooth Expand */}
-         <div
-            className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
-            style={{ maxHeight: showMore ? "800px" : "250px" }} // Adjust maxHeight as needed
-         >
-            <div className="grid grid-cols-3 md:grid-cols-4 p-4 gap-12">
+         <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${showMore ? "max-h-[800px]" : "max-h-[300px]"}`}>
+            <div className="grid md:grid-cols-4 grid-cols-3 gap-4 md:px-4 py-4 ">
                {shortcuts.slice(3).map((shortcut) => (
                   <div key={shortcut.id} className="flex flex-col items-center gap-2">
-                     <button className="w-12 h-12 bg-[#C3AD60] hover:bg-[#806d2a] rounded-lg flex items-center justify-center">
+                     <button className="w-14 h-14 bg-[#C3AD60] hover:bg-[#806d2a] rounded-lg p-3 flex items-center justify-center">
                         {shortcut.icon}
                      </button>
                      <span className="text-sm text-center text-white">{shortcut.name}</span>
@@ -101,7 +106,7 @@ const FirstView = () => {
          </div>
 
          {/* Toggle Button */}
-         <div className="flex justify-end mt-4" ref={bottomRef}>
+         <div className="md:flex hidden justify-end mt-4" ref={bottomRef}>
             <button onClick={() => setShowMore(!showMore)} className="text-[#C3AD60] text-sm underline">
                {showMore ? 'Close' : 'See More'}
             </button>
