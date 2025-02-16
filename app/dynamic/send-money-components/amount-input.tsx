@@ -1,7 +1,13 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useDashboard } from "@/context/DashboardContext";
 
-const AmountInput = () => {
+const AmountInput = ({
+  setNextComponent,
+}: {
+   setNextComponent: (component: 'input'| 'checkout' | 'sendPasscode' | null) => void
+}) => {
+  const { setReplaceWithContacts } = useDashboard();
   return (
     <div className="flex flex-col gap-10 mb-10 max-w-[90%] w-full mx-auto">
       {/* Account Input */}
@@ -41,7 +47,13 @@ const AmountInput = () => {
       </div>
 
       {/* Next Button */}
-      <button className="bg-[#C3AD60]  text-black py-3 rounded-md flex items-center justify-center gap-2 font-bold">
+      <button
+        className="bg-[#C3AD60] w-[80%] mx-auto text-black py-3 rounded-md flex items-center justify-center gap-2 font-bold"
+        onClick={() => {
+          setNextComponent('checkout')
+          setReplaceWithContacts(false);
+        }}
+      >
         <span>Next</span>
         <FaArrowRightLong />
       </button>

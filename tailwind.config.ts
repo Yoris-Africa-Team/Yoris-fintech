@@ -13,6 +13,9 @@ export default {
         foreground: "var(--foreground)",
         gold: "#C3AD60", // Add your golden-yellow color
       },
+      fontFamily: {
+        sarala : ["Sarala", "sans-serif"],
+      }
     },
   },
   plugins: [],

@@ -30,11 +30,11 @@ const WalletView = () => {
       </div>
 
       {/* Top Up Button */}
-      <button className="  items-center justify-center py-2 px-7 cursor-pointer hover:bg-[#C3AD60] hover:text-black  border-[#C3AD60] border  flex gap-3 text-white  rounded-full font-medium"
+      <button className="  items-center justify-center py-2 px-7 text-gold hover:text-black' cursor-pointer hover:bg-[#C3AD60] hover:text-black  border-[#C3AD60] border  flex gap-2  rounded-full font-medium"
         onClick={() => setActiveComponent('topUp')}
       >
-        <IoIosAddCircleOutline className='text-[#C3AD60] hover:text-black  h-6 w-6 '/>
-        <span>Top up</span>
+        <IoIosAddCircleOutline className=' h-6 w-6 '/>
+        <span className=''>Top up</span>
       </button>
 
       {/* Action Buttons */}

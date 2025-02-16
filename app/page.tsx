@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Bell, Send, Home, LineChart } from "lucide-react";
+import { MdAddCard } from "react-icons/md";
 import Header from "./constant/Header";
 import Transactions from "./dynamic/transactions";
 import FirstView from "./dynamic/first-view";
@@ -13,33 +14,52 @@ import Withdraw from "./dynamic/withdraw";
 import WithdrawPasscode from "./dynamic/withdraw-passcode";
 import SendMoney from "./dynamic/send-money";
 import Contacts from "./dynamic/contacts";
+import { useRouter } from "next/navigation";
+import Layout from "./dynamic/layout/Layout";
+import AddMomo from "./dynamic/account-info/addMomo";
+import AddNewAccount from "./dynamic/account-info/newAccount";
+import AccountInfo from "./dynamic/account-info/account-info";
+import AddNewCard from "./dynamic/account-info/newCard";
+
+
 
 const DashboardContent = () => {
-  const { activeComponent, replaceWithContacts, setReplaceWithContacts } = useDashboard();
+  const { activeComponent, setActiveComponent,replaceWithContacts, setReplaceWithContacts } =
+    useDashboard();
+  const router = useRouter();
 
   const componentsMap = {
-    'firstView': <FirstView />,
-    'wallet': <WalletView />,
-    'topUp': <TopUp />,
-    'top-passcode': <TopPasscode />,
-    'withdraw': <Withdraw />,
-    'with-passcode': <WithdrawPasscode />,
-    'sendMoney': <SendMoney />
+    firstView: <FirstView />,
+    wallet: <WalletView />,
+    topUp: <TopUp />,
+    "top-passcode": <TopPasscode />,
+    withdraw: <Withdraw />,
+    "with-passcode": <WithdrawPasscode />,
+    sendMoney: <SendMoney />,
+    acctInfo: <AccountInfo />,
+    addMomo: <AddMomo />,
+    addNewCard: <AddNewCard />,
+    addNewAcct: <AddNewAccount />,
   };
   return (
-    <div className="min-h-screen text-white p-8 max-w-[1300px] mx-auto">
-      <Header />
-
+    <div className="flex flex-col justify-between md:gap-4 ">
+      <div>
       <div className="flex justify-between items-center mb-8 pt-14">
         <h1 className="text-xl">Good Morning, Username</h1>
         <div className="flex gap-4">
-          <Bell className="w-6 h-6 text-gold" />
-          <Send className="w-6 h-6 text-gold" />
+          <Bell
+            className="w-6 h-6 text-gold cursor-pointer"
+            onClick={() => router.push("/notifications")}
+          />
+
+          <MdAddCard className="w-6 h-6 cursor-pointer text-gold" 
+          onClick={() => setActiveComponent('acctInfo')}
+          />
         </div>
       </div>
 
       {/* Balance Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1  mx-auto md:grid-cols-2 gap-6 mb-8">
         {[1, 2].map((card) => (
           <div
             key={card}
@@ -53,18 +73,21 @@ const DashboardContent = () => {
           </div>
         ))}
       </div>
-
-      <div className="flex flex-col gap-6 rounded-xl z-50 bg-black py-5 px-4 fixed top-[30%] left-0">
-        <Home className="text-[#C3AD60]" />
-        <LineChart className="text-white" />
       </div>
 
       {/* Dynamic Content Switching */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-         {/* If 'sendMoney' is active, replace FirstView with SendMoney */}
-         {componentsMap[activeComponent] || <FirstView />}
-        {/* If 'sendMoney' is active, replace Transactions with Contacts */}
-        {replaceWithContacts ? <Contacts /> : <Transactions />}
+      <div className="flex flex-col md:flex-row gap-6 items-start justify-center h-screen">
+        {/* Left Component (60%) */}
+        <div className="w-full md:w-[55%]">
+          {/* If 'sendMoney' is active, replace FirstView with SendMoney */}
+          {componentsMap[activeComponent] || <FirstView />}
+        </div>
+
+        {/* Right Component (40%) */}
+        <div className="w-full md:w-[45%]">
+          {/* If 'sendMoney' is active, replace Transactions with Contacts */}
+          {replaceWithContacts ? <Contacts /> : <Transactions />}
+        </div>
       </div>
     </div>
   );
@@ -73,7 +96,7 @@ const DashboardContent = () => {
 // Wrap DashboardContent with DashboardProvider
 const Dashboard = () => (
   <DashboardProvider>
-    <DashboardContent />
+      <DashboardContent />
   </DashboardProvider>
 );
 

@@ -2,13 +2,17 @@
 
 import { useState } from "react";
 import { FaLock } from "react-icons/fa";
-
+import { useDashboard } from "@/context/DashboardContext";
 import { IoIosArrowBack } from "react-icons/io";
-import { useDashboard } from "../context/DashboardContext";
+import SendNotification from "./send-notification";
 
-import WithdrawalNotification from "./withdrawal-notification";
-
-const WithdrawPasscode = () => {
+const SendPasscode = (
+   {
+      setNextComponent,
+    }: {
+       setNextComponent: (component: 'input'| 'checkout' | 'sendPasscode' | null) => void
+    }
+) => {
    const {setActiveComponent} = useDashboard()
 
    const [passcode, setPasscode] = useState("");
@@ -26,7 +30,7 @@ const WithdrawPasscode = () => {
          } else {
            setError(true);
            setTimeout(() => {
-             
+             setPasscode('')
              setError(false);
            }, 1500);
          }
@@ -35,9 +39,8 @@ const WithdrawPasscode = () => {
    };
 
   return (
-   <div className=" md:h-screen border rounded-2xl relative flex flex-col items-center justify-center bg-[#100F0D] border-[#C3AD60]   text-white">
-      
-   {/* Error Message */}
+   <>
+      {/* Error Message */}
    {error && (
      <div className="absolute bottom-20 left-4 w-fit bg-[#C3AD60] text-black text-center px-6 py-3 rounded-lg ">
        Incorrect passcode, please try again!
@@ -45,14 +48,14 @@ const WithdrawPasscode = () => {
    )}
    <div className=" py-3 items-center justify-center flex flex-col ">
      {passcode === correctPasscode ? (
-       <WithdrawalNotification />
+       <SendNotification />
      ) : (
       <>
-      <div className="flex items-center absolute   md:top-10 right-0 left-0 w-full bg-[#C3AD60] p-2">
+      <div className="flex items-center absolute top-5 md:top-10 right-0 left-0 w-full bg-[#C3AD60] p-2">
       <div className=" bg-black p-2 flex-shrink-0 cursor-pointer"
-      onClick={() => setActiveComponent('withdraw')}
+      onClick={() => setActiveComponent('topUp')}
       >
-         <IoIosArrowBack className="text-white mx-auto h-5 w-5"/>
+         <IoIosArrowBack className="text-white mx-auto h-3 w-3 md:h-5 md:w-5"/>
       </div>
       <h1 className="text-black flex-grow justify-center flex">Enter passcode</h1>
    </div>
@@ -75,18 +78,18 @@ const WithdrawPasscode = () => {
            ))}
          </div>
 
-     {/* Number Pad */}
+       {/* Number Pad */}
 <div className="grid grid-cols-3 items-center justify-center gap-4">
-  {[..."1234567890"].map((num, index) => (
-    <button
-      key={num}
-      className={`w-16 h-16 text-lg rounded-full bg-[#2E2E2E] hover:bg-[#C3AD60] hover:text-black transition 
-      ${num === "0" ? "col-span-1 col-start-2" : ""}`} // Center '0'
-      onClick={() => handleInput(num)}
-    >
-      {num}
-    </button>
-  ))}
+{[..."1234567890"].map((num, index) => (
+ <button
+   key={num}
+   className={`w-16 h-16 text-lg rounded-full bg-[#2E2E2E] hover:bg-[#C3AD60] hover:text-black transition 
+   ${num === "0" ? "col-span-1 col-start-2" : ""}`} // Center '0'
+   onClick={() => handleInput(num)}
+ >
+   {num}
+ </button>
+))}
 </div>
 
 
@@ -98,11 +101,14 @@ const WithdrawPasscode = () => {
       </>
      )}
    </div>
- </div>
+   </>
   )
 }
 
-export default WithdrawPasscode
+export default SendPasscode
+
+
+
 
 
 

@@ -39,7 +39,7 @@ function handleSubmit(e: any){
   >
    <label htmlFor="amount" className='flex flex-col items-start'>
       <span>AMOUNT</span>
-      <input type="text" name="" id="amount" className='w-full py-3 my-3 bg-[#181818] outline-none px-3 rounded-md ' />
+      <input type="number" name="" id="amount" className='w-full py-3 my-3 bg-[#181818] outline-none px-3 rounded-md ' />
       <span>+ N50 Withdrawal fee</span>
    </label>
    <div className='flex justify-end'>

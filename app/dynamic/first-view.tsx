@@ -1,6 +1,5 @@
 'use client';
 import React, { JSX, useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import {
    CircleDollarSign, Smartphone, PartyPopper, PlaySquare, Utensils, Film,
    Hotel, ShoppingCart, Car, Dumbbell, HeartPulse, Train, Ship, Plane,
@@ -16,15 +15,14 @@ interface ShortcutItem {
 
 const FirstView = () => {
    const [showMore, setShowMore] = useState(false);
-   const bottomRef = useRef<HTMLDivElement | null>(null); // Ref for scrolling
-   const { setActiveComponent, replaceWithContacts, setReplaceWithContacts } = useDashboard(); // Use context
-
+   const bottomRef = useRef<HTMLDivElement | null>(null);
+   const { setActiveComponent, setReplaceWithContacts } = useDashboard();
 
    useEffect(() => {
       if (showMore && bottomRef.current) {
          setTimeout(() => {
             bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-         }, 500); // Wait for animation to complete before scrolling
+         }, 500);
       }
    }, [showMore]);
 
@@ -53,66 +51,63 @@ const FirstView = () => {
    return (
       <div className="bg-[#100F0D] border border-[#C3AD60] rounded-2xl p-6">
          <h2 className="text-xl mb-6">Shortcuts</h2>
-         
+
+         {/* Top 3 Shortcuts */}
          <div className="flex gap-7 md:gap-10 justify-evenly p-5 md:items-start mb-9">
             {shortcuts.slice(0, 3).map((shortcut) => (
-               <div key={shortcut.id} className="flex flex-col  items-center gap-2">
-                  <div className="w-14 h-14 bg-[#C3AD60] rounded-lg p-3 flex items-center justify-center">
+               <div key={shortcut.id} className="flex flex-col items-center gap-2">
+                  <button className="w-14 h-14 bg-[#C3AD60] hover:bg-[#806d2a] rounded-lg p-3 flex items-center justify-center">
                      {shortcut.icon}
-                  </div>
+                  </button>
                   <span className="text-sm text-wrap max-w-14 text-center text-white">{shortcut.name}</span>
                </div>
             ))}
          </div>
 
+         {/* Buttons */}
          <div className="space-y-4 mb-10">
             <button
-               className="w-full py-3 bg-[#C3AD60] text-black flex items-center justify-center gap-2 rounded-lg"
-               onClick={() => setActiveComponent('wallet')} // Switch to TopUp
+               className="w-full md:w-[70%] hover:bg-[#806d2a] mx-auto py-3 bg-[#C3AD60] text-black flex items-center justify-center gap-2 rounded-lg"
+               onClick={() => setActiveComponent('wallet')}
             >
                <Upload className="w-5 h-5" /> Top up/Withdraw
             </button>
-            <button className="w-full py-3 border border-[#C3AD60] text-[#C3AD60] flex items-center justify-center gap-2 rounded-lg"
-              onClick={() => {
-               setActiveComponent('sendMoney'); 
-               setReplaceWithContacts(true);
-             }}
+            <button
+               className="w-full md:w-[70%] hover:bg-[#806d2a] mx-auto py-3 bg-[#C3AD60] border border-[#C3AD60] text-black flex items-center justify-center gap-2 rounded-lg"
+               onClick={() => {
+                  setActiveComponent('sendMoney');
+                  setReplaceWithContacts(true);
+               }}
             >
                <Send className="w-5 h-5" /> Send money to Yoris contact
             </button>
          </div>
 
-         {/* Icons with smooth transition */}
-         <motion.div
-            className="grid grid-cols-3 md:grid-cols-4 p-4 gap-12 overflow-hidden"
-            initial={{ height: 180, opacity: 0.8 }}
-            animate={{ height: showMore ? "auto" : 180, opacity: showMore ? 1 : 0.8 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+         {/* Shortcuts with Smooth Expand */}
+         <div
+            className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+            style={{ maxHeight: showMore ? "800px" : "250px" }} // Adjust maxHeight as needed
          >
-            {(showMore ? shortcuts.slice(3) : shortcuts.slice(3, 11)).map((shortcut, index) => (
-               <div key={shortcut.id} className="flex flex-col items-center gap-2"
-                   // Attach ref to the last item
-               >
-                  <div 
-                  
-                  className="w-12 h-12 bg-[#C3AD60] rounded-lg flex items-center justify-center">
-                     {shortcut.icon}
+            <div className="grid grid-cols-3 md:grid-cols-4 p-4 gap-12">
+               {shortcuts.slice(3).map((shortcut) => (
+                  <div key={shortcut.id} className="flex flex-col items-center gap-2">
+                     <button className="w-12 h-12 bg-[#C3AD60] hover:bg-[#806d2a] rounded-lg flex items-center justify-center">
+                        {shortcut.icon}
+                     </button>
+                     <span className="text-sm text-center text-white">{shortcut.name}</span>
                   </div>
-                  <span className="text-sm text-center text-white">{shortcut.name}</span>
-               </div>
-            ))}
-         </motion.div>
+               ))}
+            </div>
+         </div>
 
-         {/* Toggle button for See More / Close */}
-         <div className="flex justify-end mt-4"
-         ref={bottomRef}
-         >
+         {/* Toggle Button */}
+         <div className="flex justify-end mt-4" ref={bottomRef}>
             <button onClick={() => setShowMore(!showMore)} className="text-[#C3AD60] text-sm underline">
                {showMore ? 'Close' : 'See More'}
             </button>
          </div>
       </div>
    );
-}
+};
 
 export default FirstView;

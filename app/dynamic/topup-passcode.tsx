@@ -47,11 +47,11 @@ const TopPasscode = () => {
           <TopNotification />
         ) : (
          <>
-         <div className="flex items-center absolute top-10 right-0 left-0 w-full bg-[#C3AD60] p-2">
+         <div className="flex items-center absolute top-5 md:top-10 right-0 left-0 w-full bg-[#C3AD60] p-2">
          <div className=" bg-black p-2 flex-shrink-0 cursor-pointer"
          onClick={() => setActiveComponent('topUp')}
          >
-            <IoIosArrowBack className="text-white mx-auto h-5 w-5"/>
+            <IoIosArrowBack className="text-white mx-auto h-3 w-3 md:h-5 md:w-5"/>
          </div>
          <h1 className="text-black flex-grow justify-center flex">Enter passcode</h1>
       </div>
@@ -74,18 +74,20 @@ const TopPasscode = () => {
               ))}
             </div>
 
-            {/* Number Pad */}
-            <div className="grid grid-cols-3 gap-4">
-              {[..."1234567890"].map((num) => (
-                <button
-                  key={num}
-                  className="w-16 h-16 text-lg rounded-full bg-[#2E2E2E] hover:bg-[#C3AD60] hover:text-black transition"
-                  onClick={() => handleInput(num)}
-                >
-                  {num}
-                </button>
-              ))}
-            </div>
+          {/* Number Pad */}
+<div className="grid grid-cols-3 items-center justify-center gap-4">
+  {[..."1234567890"].map((num, index) => (
+    <button
+      key={num}
+      className={`w-16 h-16 text-lg rounded-full bg-[#2E2E2E] hover:bg-[#C3AD60] hover:text-black transition 
+      ${num === "0" ? "col-span-1 col-start-2" : ""}`} // Center '0'
+      onClick={() => handleInput(num)}
+    >
+      {num}
+    </button>
+  ))}
+</div>
+
 
             {/* Forgot Password */}
             <p className="mt-4 text-blue-500 cursor-pointer">

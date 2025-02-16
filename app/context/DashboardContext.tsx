@@ -3,8 +3,7 @@ import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 // Define context type
 interface DashboardContextType {
-  activeComponent: 'firstView' | 'topUp' | 'wallet' | 'top-passcode' | 'with-passcode' | 'withdraw' | 'sendMoney';
-  previousComponent: 'firstView' | 'topUp' | 'wallet' | 'top-passcode' | 'with-passcode' | 'withdraw' | 'sendMoney'| null;
+  activeComponent: 'firstView' | 'topUp' | 'wallet' | 'top-passcode' | 'with-passcode' | 'withdraw' | 'sendMoney'| 'acctInfo'| 'addNewCard'| 'addNewAcct'| 'addMomo';
   replaceWithContacts: boolean;
   setActiveComponent: (component: DashboardContextType['activeComponent']) => void;
   setReplaceWithContacts: (value: boolean) => void;
@@ -24,17 +23,14 @@ export const useDashboard = () => {
 
 // Provider component
 export const DashboardProvider = ({ children }: { children: ReactNode }) => {
-  const [activeComponent, setActiveComponentState] = useState<DashboardContextType['activeComponent']>('firstView');
-  const [previousComponent, setPreviousComponent] = useState<DashboardContextType['previousComponent']>(null);
+  const [activeComponent, setActiveComponent] = useState<DashboardContextType['activeComponent']>('firstView');
+  
   const [replaceWithContacts, setReplaceWithContacts] = useState(false);
 
-  const setActiveComponent = (component: DashboardContextType['activeComponent']) => {
-    setPreviousComponent(activeComponent); // Track the previous component
-    setActiveComponentState(component);
-  };
+  
 
   return (
-    <DashboardContext.Provider value={{ activeComponent, previousComponent, replaceWithContacts, setActiveComponent, setReplaceWithContacts }}>
+    <DashboardContext.Provider value={{ activeComponent,  replaceWithContacts, setActiveComponent, setReplaceWithContacts }}>
       {children}
     </DashboardContext.Provider>
   );
