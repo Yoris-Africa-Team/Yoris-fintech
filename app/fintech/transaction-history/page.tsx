@@ -4,7 +4,7 @@ import { Bell, Send, Home, LineChart } from "lucide-react";
 import { MdAddCard } from "react-icons/md";
 
 
-import TopUp from "@/dynamic/top-up";
+import TopUp from "../dynamic/top-up";
 import { DashboardProvider, useDashboard } from "@/fintech/context/DashboardContext";
 
 
@@ -29,7 +29,7 @@ const TransactionContent = () => {
      <div className="flex gap-4">
        <Bell
          className="w-6 h-6 text-gold cursor-pointer"
-         onClick={() => router.push("/notifications")}
+         onClick={() => router.push("/fintech/notifications")}
        />
 
        <MdAddCard className="w-6 h-6 cursor-pointer text-gold" />
