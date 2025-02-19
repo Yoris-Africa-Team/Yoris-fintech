@@ -4,7 +4,7 @@ import { Bell, Send, Home, LineChart } from "lucide-react";
 import { MdAddCard } from "react-icons/md";
 
 
-import TopUp from "@/dynamic/top-up";
+import TopUp from "../dynamic/top-up";
 import { DashboardProvider, useDashboard } from "@/fintech/context/DashboardContext";
 
 
