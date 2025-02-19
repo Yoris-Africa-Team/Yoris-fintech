@@ -9,7 +9,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full font-sarala fixed top-0 left-0 right-0 bg-[#100F0DB2] bg-opacity-70 z-50 px-8 py-4">
+    <header className="w-full font-sarala fixed top-0 left-0 right-0 backdrop-blur-sm bg-[#100F0DB2] bg-opacity-70 z-50 px-8 py-4">
       <div className="max-w-[1300px] flex mx-auto items-center">
         
         {/* Logo */}

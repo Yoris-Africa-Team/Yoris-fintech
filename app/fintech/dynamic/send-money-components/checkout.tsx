@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDashboard } from '@/context/DashboardContext';
+import { useDashboard } from '@/fintech/context/DashboardContext';
 
 
 const Checkout = ({

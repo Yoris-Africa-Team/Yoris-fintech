@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FaLock } from "react-icons/fa";
-import { useDashboard } from "@/context/DashboardContext";
+import { useDashboard } from "@/fintech/context/DashboardContext";
 import { IoIosArrowBack } from "react-icons/io";
 import SendNotification from "./send-notification";
 

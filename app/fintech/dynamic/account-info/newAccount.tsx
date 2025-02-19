@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { useDashboard } from "@/context/DashboardContext";
+import { useDashboard } from "@/fintech/context/DashboardContext";
 import { IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 
