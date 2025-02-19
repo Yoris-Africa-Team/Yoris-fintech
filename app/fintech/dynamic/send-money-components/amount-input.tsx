@@ -1,6 +1,6 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { useDashboard } from "@/context/DashboardContext";
+import { useDashboard } from "@/fintech/context/DashboardContext";
 
 const AmountInput = ({
   setNextComponent,

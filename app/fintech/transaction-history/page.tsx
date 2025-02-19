@@ -5,7 +5,7 @@ import { MdAddCard } from "react-icons/md";
 
 
 import TopUp from "@/dynamic/top-up";
-import { DashboardProvider, useDashboard } from "@/context/DashboardContext";
+import { DashboardProvider, useDashboard } from "@/fintech/context/DashboardContext";
 
 
 import { useRouter } from "next/navigation";
