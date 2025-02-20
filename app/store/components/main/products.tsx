@@ -1,5 +1,7 @@
+import { ArrowLeft, } from "lucide-react";
 import React from "react";
-import { FaCrown } from "react-icons/fa"; 
+import { FaCrown, FaArrowRight } from "react-icons/fa"; 
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const products = [
   { id: 1, name: "CURAME" },
@@ -7,17 +9,22 @@ const products = [
   { id: 3, name: "BAJSKDADAKJSANAS SDBJS" },
   { id: 4, name: "BAJSKDADAKJSANAS SDBJS" },
   { id: 5, name: "BAJSKDADAKJSANAS SDBJS" },
+  
+
 ];
 
 const Products: React.FC = () => {
   return (
-      <div className="p-6">
+      <div className="p-6 max-w-[95%]">
+        <div className="flex justify-between items-center max-w-full">
         <h2 className="text-xl font-semibold text-yellow-300">Top Products</h2>
+        <MdKeyboardArrowRight className="h-8 w-8" />
+        </div>
         <div className="mt-4 flex gap-4 overflow-x-auto scrollbar-hide">
           {products.map((product) => (
             <div
               key={product.id}
-              className="relative min-w-[250px] h-[300px] bg-gray-700 rounded-lg overflow-hidden shadow-lg"
+              className="relative min-w-[250px] h-[300px] bg-[#BCBCBC33] rounded-lg overflow-hidden shadow-lg"
             >
               {/* Placeholder image */}
               <div className="h-full w-full bg-gray-500 animate-pulse"></div>

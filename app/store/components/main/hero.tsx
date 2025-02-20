@@ -1,6 +1,9 @@
 import React from "react";
 import Layout from "../layout";
 import Products from "./products";
+import TopSellers from "./top-sellers";
+import Grocery from "./grocery";
+import Games from "./games";
 
 const Hero: React.FC = () => {
   return (
@@ -23,6 +26,9 @@ const Hero: React.FC = () => {
         </div>
       </div>
       <Products/>
+      <TopSellers/>
+      <Grocery/>
+      <Games/>
     </Layout>
   );
 };
