@@ -29,7 +29,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </aside>
 
       {/* Main Content: Removes left padding on small screens */}
-      <main className="flex-1 flex flex-col bg-[#090705] lg:pl-8 pb-16 lg:pb-0">
+      <main className="flex-1 flex flex-col bg-[#090705]  pb-16 lg:pb-0">
         <div className="flex-1 overflow-auto p-4">{children}</div>
       </main>
     </div>

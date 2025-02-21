@@ -1,5 +1,7 @@
+'use client'
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 interface TopSeller {
   brandLogo: string;
@@ -46,6 +48,7 @@ const topSellers: TopSeller[] = [
 ];
 
 const TopSellers: React.FC = () => {
+  const router = useRouter();
   return (
     <section className="p-6 mt-6">
       {/* Header */}
@@ -53,7 +56,10 @@ const TopSellers: React.FC = () => {
         <h1 className="text-yellow-300 text-lg font-semibold">
           Top Sellers / Brands
         </h1>
+        <button onClick={() => router.push('/store/brands') }>
         <MdKeyboardArrowRight className="h-6 w-6 cursor-pointer text-yellow-300" />
+
+        </button>
       </div>
 
       {/* Grid Display */}
