@@ -12,6 +12,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         gold: "#C3AD60", // Add your golden-yellow color
+        hovergold: '#806d2a'
       },
       fontFamily: {
         sarala : ["Sarala", "sans-serif"],

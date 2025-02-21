@@ -13,7 +13,7 @@ export default function Header() {
     { name: 'Puddle', path: '/puddle' },
     { name: 'App store', path: '/store' },
     { name: 'Logistics', path: '/logistics' },
-    { name: 'Fintech', path: '/fintech' },
+    { name: 'Fintech', path: '/' },
   ];
 
   return (
