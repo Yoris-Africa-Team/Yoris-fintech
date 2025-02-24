@@ -22,16 +22,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           className={`p-3 rounded-lg transition ${
             pathname === "/" ? "bg-[#C3AD60] text-black" : "text-white"
           }`}
-          onClick={() => router.push("/fintech")}
+          onClick={() => router.push("/")}
         >
           <Home className="w-6 h-6" />
         </button>
 
         <button 
           className={`p-3 rounded-lg transition ${
-            pathname === "/fintech/transaction-history" ? "bg-[#C3AD60] text-black" : "text-white"
+            pathname === "/transaction-history" ? "bg-[#C3AD60] text-black" : "text-white"
           }`}
-          onClick={() => router.push("/fintech/transaction-history")}
+          onClick={() => router.push("/transaction-history")}
         >
           <LineChart className="w-6 h-6" />
         </button>

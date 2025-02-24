@@ -29,7 +29,7 @@ const TransactionContent = () => {
      <div className="flex gap-4">
        <Bell
          className="w-6 h-6 text-gold cursor-pointer"
-         onClick={() => router.push("/fintech/notifications")}
+         onClick={() => router.push("/notifications")}
        />
 
        <MdAddCard className="w-6 h-6 cursor-pointer text-gold" />
