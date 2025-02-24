@@ -114,10 +114,10 @@ const CartSection = () => {
   return (
     <section className="max-w-[95%] mx-auto mt-8">
       {/* Cart header */}
-      <div className="flex gap-2 items-center">
+      <button className="flex gap-2 items-center" onClick={()=>router.back()}>
         <MdKeyboardArrowLeft className="h-8 w-8 cursor-pointer" />
         <h1 className="font-semibold text-2xl md:text-3xl">Cart</h1>
-      </div>
+      </button>
 
       <main className="flex flex-col w-full gap-8  lg:flex-row ">
         {/* Cart Section */}

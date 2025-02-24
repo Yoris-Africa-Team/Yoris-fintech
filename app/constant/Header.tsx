@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
   const pathname = usePathname();
@@ -19,30 +20,22 @@ export default function Header() {
   return (
     <header className="w-full font-sarala fixed top-0 left-0 right-0 backdrop-blur-sm bg-[#100F0DB2] bg-opacity-70 z-50 px-8 py-4">
       <div className="max-w-[1300px] flex mx-auto items-center">
-        
-        {/* Logo */}
         <div className="flex-shrink-0">
           <Image src="/logo.png" alt="Yoris Logo" width={100} height={60} />
         </div>
-
-        {/* Centered Desktop Navigation */}
         <div className="hidden md:flex flex-grow z-50 justify-center ">
           <nav className="flex gap-x-7 py-2 px-8 bg-[#080604] rounded-lg">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.path}
                 href={link.path}
-                className={`font-bold ${
-                  pathname === link.path ? 'text-white' : 'text-[#C3AD60]'
-                }`}
+                className={`font-bold ${pathname.startsWith(link.path) ? 'text-white' : 'text-[#C3AD60]'}`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
-
-        {/* Mobile Menu Toggle */}
         <button 
           className="md:hidden text-white ml-auto" 
           onClick={() => setIsOpen(!isOpen)}
@@ -50,8 +43,6 @@ export default function Header() {
           {isOpen ? <X size={30} className="text-[#C3AD60]" /> : <Menu size={30} className="text-[#C3AD60]" />}
         </button>
       </div>
-
-      {/* Mobile Menu */}
       {isOpen && (
         <motion.div 
           initial={{ y: -50, opacity: 0 }}
@@ -63,14 +54,12 @@ export default function Header() {
           <ul className="flex flex-col gap-4 h-[100vh] px-8">
             {navLinks.map((link) => (
               <li key={link.path}>
-                <a
+                <Link
                   href={link.path}
-                  className={`font-bold ${
-                    pathname === link.path ? 'text-white' : 'text-[#C3AD60]'
-                  }`}
+                  className={`font-bold ${pathname.startsWith(link.path) ? 'text-white' : 'text-[#C3AD60]'}`}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
