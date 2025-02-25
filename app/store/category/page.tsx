@@ -1,6 +1,7 @@
 // import { div } from "framer-motion/client";
 import Layout from "../components/layout";
 import Header from "@/constant/Header";
+import React from "react";
 
 export default function CategoryPage () {
     return(

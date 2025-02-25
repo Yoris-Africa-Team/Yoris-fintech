@@ -15,7 +15,7 @@ import WithdrawPasscode from "./dynamic/withdraw-passcode";
 import SendMoney from "./dynamic/send-money";
 import Contacts from "./dynamic/contacts";
 import { useRouter } from "next/navigation";
-import Layout from "./dynamic/layout/Layout";
+// import Layout from "./dynamic/layout/Layout";
 import AddMomo from "./dynamic/account-info/addMomo";
 import AddNewAccount from "./dynamic/account-info/newAccount";
 import AccountInfo from "./dynamic/account-info/account-info";
