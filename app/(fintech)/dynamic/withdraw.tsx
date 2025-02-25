@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDashboard } from '../context/DashboardContext'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { IoIosArrowBack } from "react-icons/io";
 
 const Withdraw = () => {

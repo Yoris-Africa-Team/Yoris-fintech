@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Bell, Send, Home, LineChart } from "lucide-react";
+import { Bell } from "lucide-react";
 import { MdAddCard } from "react-icons/md";
 import Header from "../constant/Header";
 import Transactions from "./dynamic/transactions";
@@ -8,7 +8,7 @@ import FirstView from "./dynamic/first-view";
 import WalletView from "./dynamic/wallet";
 import TopUp from "./dynamic/top-up";
 import { DashboardProvider, useDashboard } from "./context/DashboardContext";
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 import TopPasscode from "./dynamic/topup-passcode";
 import Withdraw from "./dynamic/withdraw";
 import WithdrawPasscode from "./dynamic/withdraw-passcode";
