@@ -1,7 +1,7 @@
 'use client'
-import { ArrowLeft, } from "lucide-react";
+// import { ArrowLeft, } from "lucide-react";
 import React from "react";
-import { FaCrown, FaArrowRight } from "react-icons/fa"; 
+import { FaCrown } from "react-icons/fa"; 
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useRouter } from "next/navigation";
 
