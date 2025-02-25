@@ -1,4 +1,4 @@
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 import Layout from "../components/layout";
 import Header from "@/constant/Header";
 
