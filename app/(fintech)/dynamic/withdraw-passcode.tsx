@@ -77,7 +77,7 @@ const WithdrawPasscode = () => {
 
      {/* Number Pad */}
 <div className="grid grid-cols-3 items-center justify-center gap-4">
-  {[..."1234567890"].map((num, index) => (
+  {[..."1234567890"].map((num) => (
     <button
       key={num}
       className={`w-16 h-16 text-lg rounded-full bg-[#2E2E2E] hover:bg-[#C3AD60] hover:text-black transition 

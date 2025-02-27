@@ -70,7 +70,7 @@ const Grocery: React.FC = () => {
 
       {/* Grid Display */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-        {groceryItems.map((item, index) => (
+        {groceryItems.map((item) => (
           <div
             key={item.id}
             className="bg-[#BCBCBC33] p-4 rounded-lg shadow-md flex items-center gap-4"

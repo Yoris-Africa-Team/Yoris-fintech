@@ -1,5 +1,5 @@
 'use client'
-import { section } from "framer-motion/client";
+// import { section } from "framer-motion/client";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useRouter } from "next/navigation";
