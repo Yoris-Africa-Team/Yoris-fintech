@@ -23,12 +23,12 @@ interface BusinessItem {
 }
 
 const trendingData: TrendingItem[] = [
-  { id: 1, hashtag: '#ellu_p', followers: '2.5M followers', avatar: '/avatar1.png' },
-  { id: 2, hashtag: '#ellu_p', posts: '2.5M posts', avatar: '/avatar2.png' },
-  { id: 3, hashtag: '#ellu_p', posts: '2.5M posts', avatar: '/avatar3.png' },
-  { id: 4, hashtag: '#ellu_p', posts: '2.5M posts', avatar: '/avatar4.png' },
-  { id: 5, hashtag: '#ellu_p', followers: '2.5M followers', avatar: '/avatar5.png' },
-  { id: 6, hashtag: '#ellu_p', followers: '2.5M followers', avatar: '/avatar6.png' },
+  { id: 1, hashtag: '#ellu_p', followers: '2.5M followers', avatar: '/assets/profile.png' },
+  { id: 2, hashtag: '#ellu_p', posts: '2.5M posts', avatar: '/assets/profile.png' },
+  { id: 3, hashtag: '#ellu_p', posts: '2.5M posts', avatar: '/assets/profile.png' },
+  { id: 4, hashtag: '#ellu_p', posts: '2.5M posts', avatar: '/assets/profile.png' },
+  { id: 5, hashtag: '#ellu_p', followers: '2.5M followers', avatar: '/assets/profile.png' },
+  { id: 6, hashtag: '#ellu_p', followers: '2.5M followers', avatar: '/assets/profile.png' },
 ];
 
 const trendingBusiness: BusinessItem[] = [
@@ -37,7 +37,7 @@ const trendingBusiness: BusinessItem[] = [
     username: '@Wad_Warren',
     name: 'LifeKidz Display Art',
     location: 'Accra, Ghana',
-    avatar: '/lifekidz.png',
+    avatar: '/assets/slippers.png',
     timeAgo: '20 mins ago',
     likes: 1000,
     comments: 34,
@@ -47,7 +47,7 @@ const trendingBusiness: BusinessItem[] = [
     username: '@Wad_Warren',
     name: 'Q-Biz',
     location: 'Accra, Ghana',
-    avatar: '/qbiz.png',
+    avatar: '/assets/firm.png',
     timeAgo: '30 mins ago',
     likes: 850,
     comments: 29,
@@ -57,7 +57,7 @@ const trendingBusiness: BusinessItem[] = [
 
 const Trending: React.FC = () => {
   return (
-    <div className="max-w-full md:max-w-[30%] bg-[#100F0D] shadow-[0px_3px_30px_0px_#00000026] text-white p-6 rounded-2xl">
+    <div className="max-w-full h-fit md:max-w-[30%] bg-[#100F0D] shadow-[0px_3px_30px_0px_#00000026] text-white p-6 rounded-2xl">
       {/* Trending Section */}
       <h2 className="text-lg font-semibold text-gold mb-3">Trendings</h2>
       <div className="space-y-4">

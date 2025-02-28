@@ -14,7 +14,7 @@ const PuddleHome = () => {
    <Layout>
       <form action="">
          <div className='flex bg-[#100F0D80] w-[95%] mx-auto items-center gap-3 rounded-3xl py-8 px-6 '>
-            <div className='profile-photo h-6 mr-3 w-6 bg-gray-800 rounded-full'></div>
+            <div className='profile-photo h-7 mr-3 w-7 bg-gray-800 rounded-[50%]'></div>
             <input type="text" name="" id="" 
             className=' w-full bg-[#100F0D80]  outline-none '
             placeholder='what is happening'
