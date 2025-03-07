@@ -61,7 +61,7 @@ const ProfileSection = () => {
           <button className="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition">
             <BsChat className="text-white text-lg" />
           </button>
-          <button className="px-4 py-2 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition">
+          <button className="px-4 py-2 bg-[#C3AD60] text-black font-semibold rounded-lg hover:bg-yellow-300 transition">
             + Follow
           </button>
         </div>
@@ -81,7 +81,7 @@ const ProfileSection = () => {
 
         {/* Stats */}
         <div className="flex flex-wrap items-center gap-4 text-gray-400 mt-3">
-          <span className="text-yellow-400 flex items-center gap-1">
+          <span className="text-[#C3AD60] flex items-center gap-1">
             <FaStar /> {profile.rating}
           </span>
           <span>{profile.following} following</span>

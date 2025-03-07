@@ -21,7 +21,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <aside className="fixed lg:static bottom-0 w-full lg:w-auto bg-[#0E0E0E] bg-opacity-70 p-4 z-20 flex lg:flex-col justify-around lg:justify-start items-center gap-6">
         <nav className="flex lg:flex-col w-full lg:w-auto items-center justify-around lg:justify-start gap-4">
           {navItems.map(({ href, label, icon: Icon }) => (
-            <Link key={href} href={href} className={`flex flex-col items-center p-3 rounded-lg transition-all ${pathname === href ? "text-yellow-400" : "text-white"}`}>
+            <Link key={href} href={href} className={`flex flex-col items-center p-3 rounded-lg transition-all ${pathname === href ? "text-[#C3AD60]" : "text-white"}`}>
               <Icon className="text-xl" />
               <span className="text-xs mt-1">{label}</span>
             </Link>

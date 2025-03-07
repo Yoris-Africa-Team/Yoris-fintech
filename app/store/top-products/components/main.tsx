@@ -40,7 +40,7 @@ const TopProductsSection: React.FC = () => {
             <div className="w-full h-48 bg-gray-500 animate-pulse rounded-lg"></div>
 
             {/* Crown Icon */}
-            <div className="absolute top-2 right-2 text-yellow-400 text-xl">
+            <div className="absolute top-2 right-2 text-[#C3AD60] text-xl">
               <FaCrown />
             </div>
 

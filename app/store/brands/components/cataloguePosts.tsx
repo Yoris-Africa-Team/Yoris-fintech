@@ -110,7 +110,7 @@ const CataloguePosts = () => {
                 <span>{post.comments}</span>
               </div>
               <div className="flex items-center gap-1">
-                <Bookmark className="w-6 h-6 cursor-pointer hover:text-yellow-400 transition" />
+                <Bookmark className="w-6 h-6 cursor-pointer hover:text-[#C3AD60] transition" />
                 <span>{post.saves}</span>
               </div>
               <div className="flex items-center gap-1">
