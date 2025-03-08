@@ -5,8 +5,8 @@ export const fetchMyProfile = async () => {
   return response.data;
 };
 
-export const createNotification = async (data: any) => {
-  const response = await apiClient.post("/profile", data);
+export const  createProfile= async (data: any) => {
+  const response = await apiClient.post("/profiles", data);
   return response.data;
 };
 
