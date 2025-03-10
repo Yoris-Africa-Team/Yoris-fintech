@@ -59,7 +59,7 @@ const renderStars = (rating: number) => {
   return Array.from({ length: 5 }, (_, index) => (
     <span
       key={index}
-      className={index < rating ? "text-yellow-400" : "text-gray-500"}
+      className={index < rating ? "text-[#C3AD60]" : "text-gray-500"}
     >
       ★
     </span>
@@ -75,7 +75,7 @@ const CatalogueReviews = () => {
           <h2 className="text-3xl md:text-4xl font-medium">3.0</h2>
           <p className="text-gray-400">Host Helpful Reviews</p>
         </div>
-        <div className="flex flex-col gap-2 justify-center  text-yellow-400 mt-1">
+        <div className="flex flex-col gap-2 justify-center  text-[#C3AD60] mt-1">
           <div>{renderStars(3)}</div>
           <h1 className="text-gray-400 text-sm">543 Ratings</h1>
         </div>
